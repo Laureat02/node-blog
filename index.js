@@ -1,6 +1,9 @@
 const express = require('express')
 const path = require('path')
 
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhosee/my_databse',{useNewUrlParser:true})
+
 const app = express()
 const ejs = require('ejs')
 app.set('view engine','ejs')
@@ -27,3 +30,5 @@ app.get('/contact',(req,res)=>{
 app.get('/post',(req,res)=>{
   res.render('post')
 })
+
+app.get('/posts/new',(req,res)=>{res,render('create')})
